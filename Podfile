@@ -6,6 +6,9 @@ target 'CustomApp' do
   use_frameworks!
 
   # Pods for CustomApp
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+
 
   target 'CustomAppTests' do
     inherit! :search_paths
