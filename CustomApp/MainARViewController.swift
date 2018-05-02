@@ -26,7 +26,7 @@ class MainARViewController : UIViewController, ARSessionDelegate, CLLocationMana
         let lon = locationFinder.location?.coordinate.longitude
         for post in MapViewController.postArray {
             if ((post.getlat() - 3.0).isLess(than: lat!) && lat!.isLess(than: post.getlat() + 3.0) && (post.getlon() - 3.0).isLess(than: lon!) && lon!.isLess(than: post.getlon() + 3.0)) {
-                guard let currentframe = arScene.session.currentFrame else {
+                guard let currentframe = arView.session.currentFrame else {
                     return
                 }
                 let imageplane = SCNPlane(width: arView.bounds.width / 3000, height: arView.bounds.height / 3000)

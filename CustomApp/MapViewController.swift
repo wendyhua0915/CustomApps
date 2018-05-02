@@ -45,7 +45,7 @@ class MapViewController : UIViewController , CLLocationManagerDelegate {
             centerScreen(location: self.manager.location!)
             
             mapView.showsUserLocation = true
-            mapView.addAnnotations(postArray)
+            mapView.addAnnotations(MapViewController.postArray)
             
         } else {
             print("loc services not enabled")
@@ -91,9 +91,9 @@ class MapViewController : UIViewController , CLLocationManagerDelegate {
                         let longitude = post["longitude"] as! Double
                         let timestamp = post["timestamp"] as! TimeInterval
                         
-                        self.postArray.append(Post(lat: latitude, lon: longitude, imagepath: imagePath, id: key, timeInterval: timestamp, Username: userName))
+                        MapViewController.postArray.append(Post(lat: latitude, lon: longitude, imagepath: imagePath, id: key, timeInterval: timestamp, Username: userName))
                     }
-                    completion(self.postArray)
+                    completion(MapViewController.postArray)
                 } else {
                     completion([])
                 }
