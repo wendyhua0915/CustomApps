@@ -11,18 +11,29 @@ import UIKit
 
 class TitleViewController : UIViewController {
     
+    @IBOutlet weak var camera: UIButton!
+    @IBOutlet weak var map: UIButton!
     
-    @IBAction func toCamera(_ sender: UIButton) {
-        performSegue(withIdentifier: "toCamera", sender: self)
+    @IBOutlet weak var appName: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        camera.setTitle("Camera", for: .normal)
+        map.setTitle("Map", for: .normal)
+        self.camera.tag = 0
+        self.map.tag = 1
+        appName.text = "Insert app name here"
     }
     
-    @IBAction func toPhotos(_ sender: UIButton) {
-        performSegue(withIdentifier: "toPhotos", sender: self)
+    @IBAction func buttonWasPressed(_ sender: UIButton) {
+        if sender.tag == 0 {
+            performSegue(withIdentifier: "toCamera", sender: self)
+        } else if sender.tag == 1 {
+            performSegue(withIdentifier: "toMap", sender: self)
+        }
     }
     
-    @IBAction func toSettings(_ sender: UIButton) {
-        performSegue(withIdentifier: "toSettings", sender: self)
-    }
+    
     
     
 }

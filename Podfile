@@ -8,6 +8,9 @@ target 'CustomApp' do
   # Pods for CustomApp
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
+    pod 'Firebase/Database'
+    pod 'Firebase/Storage'
+    pod 'FirebaseUI/Storage'
 
 
   target 'CustomAppTests' do

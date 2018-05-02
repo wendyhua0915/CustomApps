@@ -12,7 +12,6 @@ import Firebase
 
 class SigninViewController : UIViewController {
     
-    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
@@ -22,11 +21,10 @@ class SigninViewController : UIViewController {
     
     @IBAction func signIn(_ sender: UIButton) {
         //Perform Firebase Authentication here.
-        
         if username.text == nil || password.text == nil {
             print("blank username or password")
         } else {
-            Auth.auth().signIn(withEmail: username.text!, password: password.text!, completion: {
+            Auth.auth().signIn(withEmail: username.text! as! String, password: password.text!, completion: {
                 (user, error) in
                 if (error == nil) {
                     self.performSegue(withIdentifier: "logInToMain", sender: self)
@@ -38,6 +36,8 @@ class SigninViewController : UIViewController {
             })
         }
     }
+    
+    
     
     override func viewDidLoad() {
         if Auth.auth().currentUser != nil {
